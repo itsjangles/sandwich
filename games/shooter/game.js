@@ -34,13 +34,22 @@ function create ()
     stick.setOrigin(0.5, 1);
     stick.setCollideWorldBounds(true);
 
-    circle = this.physics.add.image(0, 0, 'circle');
+    circle = this.physics.add.image(200, 200, 'circle');
     circle.setCollideWorldBounds(true);
+    circle.setBounce(1, 0.8);
+
+    this.input.on('pointermove', p => {
+        stick.rotation = Phaser.Math.Angle.Between(p.x, p.y, stick.x, stick.y) - 3.14 / 2;
+    });
+    this.input.on('pointerdown', () => {
+        console.log('click');
+        circle.setVelocityY(-400);
+    });
+    circle.setVelocity(300, -400);
+    circle.setGravityY(300);
 }
 
 function update ()
 {
-    this.input.on('pointermove', p => {
-        stick.rotation = Phaser.Math.Angle.Between(p.x, p.y, stick.x, stick.y) - 3.14 / 2;
-    });
+
 }
