@@ -30,7 +30,7 @@ function create ()
 {
     this.add.image(400, 300, 'bg');
     stick = this.physics.add.image(400, 600, 'stick');
-    // stick.setBounce(0.2);
+    // stick.setBounce(0.2); test
     stick.setOrigin(0.5, 1);
     stick.setCollideWorldBounds(true);
 
